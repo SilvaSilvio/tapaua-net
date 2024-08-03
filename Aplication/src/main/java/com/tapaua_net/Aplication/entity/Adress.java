@@ -1,11 +1,10 @@
-package com.netsoul.beuga.Aplication.entity;
+package com.tapaua_net.Aplication.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
 
 @Entity
 @Table(name = "endereco")
-public class Endereco {
+public class Adress {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,11 +18,11 @@ public class Endereco {
     @ManyToOne
     private Pessoa pessoa;
 
-    public Endereco(){
+    public Adress(){
 
     }
 
-    public Endereco(Long id, String rua, String numero, String cidade, String estado, String cep, String pais) {
+    public Adress(Long id, String rua, String numero, String cidade, String estado, String cep, String pais) {
         this.id = id;
         this.rua = rua;
         this.numero = numero;

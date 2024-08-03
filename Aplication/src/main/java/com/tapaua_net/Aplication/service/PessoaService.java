@@ -1,8 +1,8 @@
-package com.netsoul.beuga.Aplication.service;
+package com.tapaua_net.Aplication.service;
 
-import com.netsoul.beuga.Aplication.entity.Endereco;
-import com.netsoul.beuga.Aplication.entity.Pessoa;
-import com.netsoul.beuga.Aplication.repository.PessoaRepositoty;
+import com.tapaua_net.Aplication.entity.Adress;
+import com.tapaua_net.Aplication.entity.Pessoa;
+import com.tapaua_net.Aplication.repository.PessoaRepositoty;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class PessoaService {
         return obj;
     }
 
-    public Pessoa saveEndereco(Long pessoaId, Endereco endereco){
+    public Pessoa saveEndereco(Long pessoaId, Adress endereco){
         Pessoa pessoa =  pessoaRepositoty.findById(pessoaId).orElseThrow(()-> new RuntimeException("Pessoa não encontrada"));
         pessoa.addAdress( endereco );
         return pessoaRepositoty.save(pessoa);

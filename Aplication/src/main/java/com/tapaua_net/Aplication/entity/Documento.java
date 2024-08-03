@@ -1,4 +1,4 @@
-package com.netsoul.beuga.Aplication.entity;
+package com.tapaua_net.Aplication.entity;
 
 import jakarta.persistence.*;
 import lombok.ToString;

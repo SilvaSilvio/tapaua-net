@@ -1,9 +1,8 @@
-package com.netsoul.beuga.Aplication.controller;
+package com.tapaua_net.Aplication.controller;
 
-import com.netsoul.beuga.Aplication.entity.Endereco;
-import com.netsoul.beuga.Aplication.service.EnderecoService;
+import com.tapaua_net.Aplication.entity.Adress;
+import com.tapaua_net.Aplication.service.EnderecoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ public class EnderecoController {
     private EnderecoService enderecoService;
 
     @PostMapping("/save")
-    public Endereco saveEndereco(@RequestBody Endereco obj){
+    public Adress saveEndereco(@RequestBody Adress obj){
         enderecoService.saveEndereco(obj);
 
         return null;

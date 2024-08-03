@@ -1,7 +1,7 @@
-package com.netsoul.beuga.Aplication.service;
+package com.tapaua_net.Aplication.service;
 
-import com.netsoul.beuga.Aplication.entity.Endereco;
-import com.netsoul.beuga.Aplication.repository.EnderecoRepository;
+import com.tapaua_net.Aplication.entity.Adress;
+import com.tapaua_net.Aplication.repository.EnderecoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ public class EnderecoService {
 @Autowired
     private EnderecoRepository enderecoRepository;
 
-public void saveEndereco(Endereco endereco){
+public void saveEndereco(Adress endereco){
     enderecoRepository.save( endereco );
 }
 

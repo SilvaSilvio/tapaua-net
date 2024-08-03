@@ -1,8 +1,9 @@
-package com.netsoul.beuga.Aplication.controller;
+package com.tapaua_net.Aplication.controller;
 
-import com.netsoul.beuga.Aplication.entity.Pessoa;
-import com.netsoul.beuga.Aplication.service.EnderecoService;
-import com.netsoul.beuga.Aplication.service.PessoaService;
+import com.tapaua_net.Aplication.entity.Adress;
+import com.tapaua_net.Aplication.entity.Pessoa;
+import com.tapaua_net.Aplication.service.EnderecoService;
+import com.tapaua_net.Aplication.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 //import jakarta.validation.Valid;
@@ -23,6 +24,12 @@ public class PessoaController {
     public ResponseEntity<Pessoa> savePessoa(@RequestBody Pessoa obj){
         Pessoa pessoa = pessoaService.savePeople(obj) ; //pessoaService.sa
         return ResponseEntity.ok(pessoa);
+    }
+
+    @PostMapping("/save/adress")
+    public ResponseEntity<Pessoa> saveAdress(Long pessoaId, Adress endereco){
+//    Pessoa pessoa = pessoaService
+        return null;
     }
 
     @GetMapping("/getPeople")

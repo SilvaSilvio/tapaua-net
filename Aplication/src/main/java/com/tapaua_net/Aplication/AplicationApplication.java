@@ -1,6 +1,6 @@
-package com.netsoul.beuga.Aplication;
+//package com.tapaua_net.Aplication;
+package com.tapaua_net.Aplication;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,4 +10,5 @@ public class AplicationApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AplicationApplication.class, args);
 	}
+
 }

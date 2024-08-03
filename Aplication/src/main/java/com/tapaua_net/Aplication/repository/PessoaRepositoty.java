@@ -1,6 +1,6 @@
-package com.netsoul.beuga.Aplication.repository;
+package com.tapaua_net.Aplication.repository;
 
-import com.netsoul.beuga.Aplication.entity.Pessoa;
+import com.tapaua_net.Aplication.entity.Pessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

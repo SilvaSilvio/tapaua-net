@@ -1,6 +1,5 @@
-package com.netsoul.beuga.Aplication.entity;
+package com.tapaua_net.Aplication.entity;
 
-import com.netsoul.beuga.Aplication.records.RequestPessoa;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,21 +18,21 @@ public class Pessoa {
     private String name;
     private String lastname;
     private Integer age;
-    private String sexo;
+    private String sex;
 
     @OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
-    private List<Endereco> adress = new ArrayList<>();
+    private List<Adress> adress = new ArrayList<>();
 
     @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private Documento documents;
 
-    public void addAdress(Endereco endereco){
+    public void addAdress(Adress endereco){
         adress.add(endereco);
         endereco.setPessoa( this );
     }
 
-    public void removeAdress(Endereco endereco){
+    public void removeAdress(Adress endereco){
         adress.remove(endereco);
         endereco.setPessoa(null);
     }
@@ -81,18 +80,18 @@ public class Pessoa {
     }
 
     public String getSexo() {
-        return sexo;
+        return sex;
     }
 
     public void setSexo(String sexo) {
-        this.sexo = sexo;
+        this.sex = sexo;
     }
 
-    public List<Endereco> getAdress() {
+    public List<Adress> getAdress() {
         return adress;
     }
 
-    public void setAdress(List<Endereco> adress) {
+    public void setAdress(List<Adress> adress) {
         this.adress = adress;
     }
 
