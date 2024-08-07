@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity(name = "pessoa")
 @Table(name = "pessoa")
-public class Pessoa {
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,18 @@ public class Pessoa {
     @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private Documento documents;
 
+    public Person(){}
+
+    public Person(Long id, String name, String lastname, Integer age, String sex, List<Adress> adress, Documento documents) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.age = age;
+        this.sex = sex;
+        this.adress = adress;
+        this.documents = documents;
+    }
+
     public void addAdress(Adress endereco){
         adress.add(endereco);
         endereco.setPessoa( this );
@@ -40,12 +52,6 @@ public class Pessoa {
     public void addDocuments(Documento documento){
         Documento d = new Documento();
     }
-
-//    public Pessoa(RequestPessoa requestPessoa){
-//        this.name = requestPessoa.name();
-//        this.lastname = requestPessoa.lastname();
-//    }
-
 
     public Long getId() {
         return id;

@@ -16,13 +16,14 @@ public class Adress {
     private String pais;
 
     @ManyToOne
-    private Pessoa pessoa;
+    @JoinColumn(name = "pessoa_id")
+    private Person pessoa;
 
     public Adress(){
 
     }
 
-    public Adress(Long id, String rua, String numero, String cidade, String estado, String cep, String pais) {
+    public Adress(Long id, String rua, String numero, String cidade, String estado, String cep, String pais, Person pessoa) {
         this.id = id;
         this.rua = rua;
         this.numero = numero;
@@ -30,7 +31,7 @@ public class Adress {
         this.estado = estado;
         this.cep = cep;
         this.pais = pais;
-//        this.pessoa = pessoa;
+        this.pessoa = pessoa;
     }
 
     public Long getId() {
@@ -89,11 +90,11 @@ public class Adress {
         this.pais = pais;
     }
 
-    public Pessoa getPessoa() {
+    public Person getPessoa() {
         return pessoa;
     }
 
-    public void setPessoa(Pessoa pessoa) {
+    public void setPessoa(Person pessoa) {
         this.pessoa = pessoa;
     }
 }

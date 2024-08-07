@@ -1,8 +1,6 @@
 package com.tapaua_net.Aplication.entity;
 
 import jakarta.persistence.*;
-import lombok.ToString;
-import org.springframework.boot.autoconfigure.batch.BatchTransactionManager;
 
 @Entity(name = "documento")
 public class Documento {
@@ -17,11 +15,11 @@ public class Documento {
     private String cnh;
 
     @OneToOne
-    private Pessoa pessoa;
+    private Person pessoa;
 
     public Documento(){}
 
-    public Documento(String cpf, String identidade, String cnh, Pessoa pessoa) {
+    public Documento(String cpf, String identidade, String cnh, Person pessoa) {
         this.cpf = cpf;
         this.identidade = identidade;
         this.cnh = cnh;

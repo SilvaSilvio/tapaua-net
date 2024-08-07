@@ -1,30 +1,34 @@
 package com.tapaua_net.Aplication.service;
 
 import com.tapaua_net.Aplication.entity.Adress;
-import com.tapaua_net.Aplication.entity.Pessoa;
-import com.tapaua_net.Aplication.repository.PessoaRepositoty;
+import com.tapaua_net.Aplication.entity.Person;
+import com.tapaua_net.Aplication.repository.PersonRepositoty;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PessoaService {
+public class PersonService {
 
-    public PessoaRepositoty pessoaRepositoty;
+    public PersonRepositoty pessoaRepositoty;
 
-    public PessoaService(PessoaRepositoty pessoaRepositoty){
+    public PersonService(PersonRepositoty pessoaRepositoty){
         this.pessoaRepositoty = pessoaRepositoty;
     }
 
-    public Pessoa savePeople(Pessoa obj){
-        pessoaRepositoty.save( obj );
-//        return (Pessoa) listAllPeople();
-        return obj;
+    public Person savePeople(Person obj){
+
+        if (obj.getAdress() != null){
+            for (Adress adress : obj.getAdress()){
+                adress.setPessoa(obj);
+            }
+        }
+        return pessoaRepositoty.save( obj );
     }
 
-    public Pessoa saveEndereco(Long pessoaId, Adress endereco){
-        Pessoa pessoa =  pessoaRepositoty.findById(pessoaId).orElseThrow(()-> new RuntimeException("Pessoa não encontrada"));
+    public Person saveEndereco(Long pessoaId, Adress endereco){
+        Person pessoa =  pessoaRepositoty.findById(pessoaId).orElseThrow(()-> new RuntimeException("Pessoa não encontrada"));
         pessoa.addAdress( endereco );
         return pessoaRepositoty.save(pessoa);
     }
@@ -35,7 +39,7 @@ public class PessoaService {
 //        return pessoaRepositoty.deleteById();
 //    }
 
-    public List<Pessoa> updatePeople(Pessoa obj){
+    public List<Person> updatePeople(Person obj){
        pessoaRepositoty.save(obj);
        return listAllPeople();
     }
@@ -45,11 +49,11 @@ public class PessoaService {
 //        return listAllPeople();
     }
 
-    public List<Pessoa> listAllPeople() {
+    public List<Person> listAllPeople() {
         return pessoaRepositoty.findAll();
     }
 
-    public Optional<Pessoa> findById(Long obj){
+    public Optional<Person> findById(Long obj){
         return pessoaRepositoty.findById(obj);
     }
 
